@@ -1,5 +1,18 @@
 # Paradise
 
+## What's new?
+
+### Dialogs
+
+#### Talkto
+- `talkto Alice` Show the greetings of the caracter
+
+#### Greets
+- `greets Let's make some tea.` Set the greetings of the host, which become a character.
+- `greets` Reset the greeting, the host is no longer a character. TODO: Use a seperate command
+
+
+
 ## Actions
 
 You can input multiple commands using the `&` character to break a command into multiple.
