@@ -185,6 +185,8 @@ function Action(host,name)
 
       talkto:require('./actions/talkto'),
       greets:require('./actions/greets'),
+      answer:require('./actions/answer'),
+      ask:require('./actions/ask'),
     }
     for(id in _actions){
       var action = new _actions[id]

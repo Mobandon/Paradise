@@ -3,6 +3,7 @@ let basic = {
   attr: "hungry",
   parent: 0,
   owner: -1,
+  answers: {who: "I am just a ghost."}
 }
 
 function Vessel(data = basic)
@@ -37,6 +38,26 @@ function Vessel(data = basic)
   {
     console.log(`- set ${this.name()} ${key}='${value}'`)
     this.data[key] = value;
+  }
+
+  this.setanswer = function(key,value)
+  {
+    if (!this.data.answers) {
+      console.log(`- create ANSWERS for ${this.name()}`)
+      this.data.answers = {};
+    }
+    console.log(`- set ${this.name()} ANSWERS ${key}='${value}'`)
+    this.data.answers[key] = value;
+  }
+
+  this.answer = function(question)
+  {
+    if (this.data.answers) {
+      if (this.data.answers[question]) {
+        return this.data.answers[question]
+      }
+    }
+    return null
   }
 
   this.move = function(target)
