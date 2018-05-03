@@ -30,7 +30,7 @@ function Vessel(data = basic)
     }
     catch(err){
       return require(`./action`);
-    } 
+    }
   }
 
   this.set = function(key,value)
@@ -131,6 +131,12 @@ function Vessel(data = basic)
     return this.data.program ? true : false
   }
 
+  this.is_character = function()
+  {
+    return this.data.greetings ? true : false
+  }
+
+
   // Formatters
 
   this.to_h = function()
@@ -139,12 +145,19 @@ function Vessel(data = basic)
   }
 
   this.to_a = function(show_particle = true)
-  {     
-    return `${show_particle ? this.particle()+" " : ''}<action data='${this.action()}'>${this.name()}</action>`
+  {
+    if (this.is_character()) {
+      return `<action data='${this.action()}'>${this.name()/*.capitalize()*/}</action>`
+    }
+    else {
+      return `${show_particle ? this.particle()+" " : ''}<action data='${this.action()}'>${this.name()}</action>`
+    }
+
   }
 
   this.particle = function()
   {
+    if (this.is_character()) {return "";}
     if(this.data.attr){ return "the"; }
     var letter = this.data.name.substr(0,1).toLowerCase();
     return letter == "a" || letter == "e" || letter == "i" || letter == "o" || letter == "u" ? "an" : "a"
@@ -152,13 +165,19 @@ function Vessel(data = basic)
 
   this.name = function()
   {
-    return `${this.data.attr ? this.data.attr+' ' : ''}${this.data.name}`
+    return `${this.data.attr ? this.data.attr+' ' : ''}${this.is_character() ? this.data.name.capitalize() : this.data.name}`
+  }
+
+  this.greetings = function()
+  {
+    return this.data.greetings ? this.data.greetings : 'hello';
   }
 
   this.type = function()
   {
     if(this.data.program){ return `program` }
     if(this.data.note){ return `location` }
+    if(this.data.greetings){ return `character` }
 
     return `vessel`
   }
@@ -180,7 +199,7 @@ function Vessel(data = basic)
         action = `${this.usage()} ${this.name()}`
       }
       else{
-        action = `drop the ${this.name()}`        
+        action = `drop the ${this.name()}`
       }
     }
     else if(this.data.parent == parade.ghost().data.parent){ // Is Visible
@@ -188,7 +207,7 @@ function Vessel(data = basic)
         action = `${this.usage()} ${this.name()}`
       }
       else{
-        action = `enter the ${this.name()}`  
+        action = `enter the ${this.name()}`
       }
     }
 

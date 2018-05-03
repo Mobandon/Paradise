@@ -24,7 +24,7 @@ function Action(host,name)
     }
     return h
   }
-  
+
   this.operate = function(params,action)
   {
     // Check if is custom action
@@ -62,7 +62,7 @@ function Action(host,name)
     if(name == "anywhere" || name == "anything"){ return this.find_random(a); }
 
     return is_any ? this.find_any(a,attr,name) : this.find_target(a,attr,name);
-  } 
+  }
 
   this.find_id = function(a,target)
   {
@@ -91,8 +91,8 @@ function Action(host,name)
     // With attr
     for(id in a){
       var v = a[id]
-      if(v.data.name != name){ continue; } 
-      if(v.data.attr != attr){ continue; } 
+      if(v.data.name != name){ continue; }
+      if(v.data.attr != attr){ continue; }
       return v
     }
 
@@ -116,7 +116,7 @@ function Action(host,name)
   this.header = function()
   {
     if(this.host.is_paradox()){
-      return `You are the <action data='help with paradoxes'>paradox</action> of ${this.host.particle()} ${this.host.name()}.`  
+      return `You are the <action data='help with paradoxes'>paradox</action> of ${this.host.particle()} ${this.host.name()}.`
     }
     if(this.host.parent().is_paradox()){
       return `You are ${this.host.particle()} <action data='warp to ${this.host.id}'>${this.host.name()}</action> in ${this.host.parent().particle()} ${this.host.parent().name()}.`
@@ -182,6 +182,9 @@ function Action(host,name)
       use:require('./actions/use'),
       usage:require('./actions/usage'),
       cast:require('./actions/cast'),
+
+      talkto:require('./actions/talkto'),
+      greets:require('./actions/greets'),
     }
     for(id in _actions){
       var action = new _actions[id]
