@@ -12,18 +12,18 @@ You can still use it like a normal vessel, but it can make the narration better.
 
 #### Greets
 - `greets Let's make some tea.` Set the greetings of the host, which become a character.
-- `greets` Reset the greeting, the host is no longer a character. TODO: Make a seperate command
+- `greets` Reset the greeting, the host is no longer a character. **TODO**: Make a seperate command
 
 #### Talkto
 - `talkto Alice` Show the greetings of a visible caracter.
 
 #### Answer
-- `Answer favorite tea = I really like green tea!` Set an answer for the host. Use "=" to separate the question from the awnser.
-- `Answer favorite tea` If the answer exist, this will delete it. TODO: Make a seperate command
+- `answer favorite tea = I really like green tea!` Set an answer for the host. Use "=" to separate the question from the awnser.
+- `answer favorite tea` If the answer exist, this will delete it. **TODO**: Make a seperate command
 
 #### Ask
-- `Ask Alice` Show the list of the availables questions for a visible character (with the greeting).
-- `Ask Alice favorite tea` Show the answer for a question. ('Alice: I really like green tea!')
+- `ask Alice` Show the list of the availables questions for a visible character (with the greeting).
+- `ask Alice favorite tea` Show the answer for a question. _**Alice**: I really like green tea!_
 
 
 ## Actions
