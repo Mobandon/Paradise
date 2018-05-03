@@ -26,6 +26,21 @@ You can still use it like a normal vessel, but it can make the narration better.
 - `ask Alice favorite tea` Show the answer for a question. _**Alice**: I really like green tea!_
 
 
+### Tutorial: The riddle
+A simple math question
+
+```
+create a sphinx
+enter the sphinx
+greets What is 2 + 2 ?
+answer 1 = Wrong!
+answer 4 = Great! The password is coffee.
+answer 6 = Wrong!
+leave
+ask sphinx
+ask sphinx 4
+```
+
 ## Actions
 
 You can input multiple commands using the `&` character to break a command into multiple.
