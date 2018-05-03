@@ -1,6 +1,12 @@
 # Paradise
 
-## What's new?
+## What's different?
+
+### Characters
+
+When a vessel has a greeting, it will become a character.
+A character vessel has its name displayed differently.
+You can still use it like a normal vessel, but it can make the narration better.
 
 ### Dialogs
 
